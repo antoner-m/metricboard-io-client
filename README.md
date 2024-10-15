@@ -1,2 +1,2 @@
-# sitecenter-client
-Some client-side classes for sitecenter.org
+# metricboard-client
+Some client-side classes for metricboard.io
