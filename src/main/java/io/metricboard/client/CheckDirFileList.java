@@ -15,7 +15,7 @@ import java.util.Properties;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
 
-public class DirCheck {
+public class CheckDirFileList {
     public static void main(String[] args) {
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 
@@ -54,7 +54,7 @@ public class DirCheck {
             restEndpoint = props.getProperty("restEndpoint");
 
             if (!restEndpoint.endsWith("/")) restEndpoint += "/";
-            restEndpoint += "watcher/dirCheck";
+            restEndpoint += "watcher/checkDirFileList";
             System.out.println("Getting access token....");
 
             // Authenticate with Keycloak
@@ -71,7 +71,7 @@ public class DirCheck {
             jsonPayload.put("datetime", LocalDateTime.now().toString());
 
             // Transfer JSON to REST endpoint
-            System.out.println("Sending result json....");
+            System.out.println("Sending result json to:"+restEndpoint+"");
             ClientUtils.retryablePostRequest(jsonPayload.toString(), restEndpoint, accessToken);
             System.out.println("Sending result json done!");
 
